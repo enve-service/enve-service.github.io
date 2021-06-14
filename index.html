@@ -5392,6 +5392,7 @@ Explore your accessibility options" class="INDcircle-btn" style="top: 100px; --i
 
 <div id="results" style="display: none; text-align: center;">
 	<img id="prodimg" src="https://www.enve.com/wp-content/uploads/2020/11/Serial-1536x768.jpg" style="width:25%; margin: auto"/>
+	<p class="par" style="font-size:1rem">Image for demonstration only</p>
 	<br>
 	<p class="par">Product Name</p>
 	<p id="rname" >Missing</p>
@@ -5467,34 +5468,34 @@ Explore your accessibility options" class="INDcircle-btn" style="top: 100px; --i
 		
 		
 		if (number.length == 8) {
-			if (number.charAt(0) == '2') { // seatpost
+			if (number.charAt(0) == '3') { // seatpost
 				var size = "";
-				if (number.charAt(1) == '3') { //  27.2mm diameter
+				if (number.charAt(1) == '5') { //  27.2mm diameter
 					size += "27.2mm x 400mm, "
-				} else if (number.charAt(1) == '7') { //  31.6mm diameter
+				} else if (number.charAt(1) == '6') { //  31.6mm diameter
 					size += "31.6mm x 400mm, "
 				} else {
 					badResult(); 
 				}
 				
-				if (number.charAt(2) != '1') {
-					badResult();
-				}
-				if (number.charAt(6) != '3') {
+				
+				if (number.charAt(6) != '4') {
 					badResult();
 				}
 				
 				var year = number.charAt(5) + number.charAt(3);
 				var month = number.charAt(4);
 				document.getElementById("rdate").innerHTML = year + "/0" + month;
-				document.getElementById("rname").innerHTML = "Enve Seatpost";
+				document.getElementById("rname").innerHTML = "Enve Seatpost Generation 1";
 				
-				if (number.charAt(2) == '1') {
+				if (number.charAt(2) == '7') {
 					size += " 25mm Layback";
 					document.getElementById("rprod").innerHTML = "EN512625440";
-				} else if (number.charAt(2) == '3') {
+					document.getElementById("prodimg").src = "https://static.biketiresdirect.com/productimages/images650/ev2bt1-4.jpg";
+				} else if (number.charAt(2) == '6') {
 					size += " 0mm Layback";
 					document.getElementById("rprod").innerHTML = "EN512627240";
+					document.getElementById("prodimg").src = "https://images.coloradocyclist.com/product/400/e/enve-2bolt-carbon-seatpost.jpg";
 				} else {
 					badResult();
 				}
@@ -5504,20 +5505,19 @@ Explore your accessibility options" class="INDcircle-btn" style="top: 100px; --i
 				var i = 0, count = 0;
 				for (i = 0; i < 7; i++) {
 					count += parseInt(number.charAt(i), 10);
-					console.log("count " + count);
 				}
 				i = count % 10;
-				console.log("i " + i);
+				console.log("crc " + i);
 				if (i == parseInt(number.charAt(7), 10)) {
-					document.getElementById("prodimg").src = "https://images.coloradocyclist.com/product/400/e/enve-2bolt-carbon-seatpost.jpg";
+					
 					showResult();
 				} else {
 					badResult();
 				}
 				
-			} else if (number.charAt(0) == '1') { // stem
+			} else if (number.charAt(0) == '2') { // stem
 				var size = "";
-				switch (parseInt(number.charAt(1), 10)) {
+				switch (parseInt(number.charAt(2), 10)) {
 					case 1: size = "80mm"; break;
 					case 2: size = "90mm"; break;
 					case 3: size = "100mm"; break;
@@ -5526,12 +5526,12 @@ Explore your accessibility options" class="INDcircle-btn" style="top: 100px; --i
 					default: badResult();
 				}
 			
-				if (number.charAt(2) == '1') {
-					size += " Black logo";
+				if (number.charAt(6) == '1') {
+					size += " Black Logo";
 					document.getElementById("prodimg").src = "https://www.leisurelakesbikes.com/images/en610-enve-carbon-stem-black-black.jpg";
 					document.getElementById("rprod").innerHTML = "EN61062130";
-				} else if (number.charAt(2) == '3') {
-					size += " White logo";
+				} else if (number.charAt(6) == '2') {
+					size += " White Logo";
 					document.getElementById("rprod").innerHTML = "EN61062130";
 					document.getElementById("prodimg").src = "https://www.hargrovescycles.co.uk/images/enve%20stem-3.jpg";
 				} else {
