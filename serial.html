@@ -5556,7 +5556,49 @@ Explore your accessibility options" class="INDcircle-btn" style="top: 100px; --i
 				} else {
 					badResult();
 				}
+			} else if (number.charAt(0) == '1') { // handlebar
+				var size = "";
+				switch (parseInt(number.charAt(1), 10)) {
+					case 1: size = "400mm"; break;
+					case 2: size = "410mm"; break;
+					case 3: size = "420mm"; break;
+					case 4: size = "440mm"; break;
+					default: badResult();
+				}
+			
+				if (number.charAt(6) == '1') {
+					size += " Compact Black Logo";
+					document.getElementById("prodimg").src = "https://www.totalcycling.com/Images/Models/Original/21607.Jpg";
+					document.getElementById("rprod").innerHTML = "EN61062130";
+				} else if (number.charAt(6) == '2') {
+					//size += " White Logo";
+					//document.getElementById("rprod").innerHTML = "EN61062130";
+					//document.getElementById("prodimg").src = "https://www.hargrovescycles.co.uk/images/enve%20stem-3.jpg";
+					badResult();
+				} else {
+					badResult();
+				}
+				document.getElementById("rsize").innerHTML = size;
+				document.getElementById("rname").innerHTML = "Enve SES Aero Road Handlebar Gen 1";
 				
+				var year = number.charAt(5) + number.charAt(3);
+				var month = number.charAt(4);
+				document.getElementById("rdate").innerHTML = year + "/0" + month;
+				
+				var i = 0, count = 0;
+				for (i = 0; i < 7; i++) {
+					count += parseInt(number.charAt(i), 10);
+					console.log("count " + count);
+				}
+				i = count % 10;
+				console.log("i " + i);
+				if (i == parseInt(number.charAt(7), 10)) {
+					showResult();
+				} else {
+					badResult();
+				}
+			} else {
+				badResult();
 			}
 		
 		} else {
