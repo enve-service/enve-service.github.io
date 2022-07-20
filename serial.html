@@ -5536,6 +5536,8 @@ Explore your accessibility options" class="INDcircle-btn" style="top: 100px; --i
 					default: badResult();
 				}
 			
+				document.getElementById("rname").innerHTML = "Enve Road Stem";
+			
 				if (number.charAt(6) == '1') {
 					size += " Black Logo";
 					document.getElementById("prodimg").src = "https://www.leisurelakesbikes.com/images/en610-enve-carbon-stem-black-black.jpg";
@@ -5544,11 +5546,15 @@ Explore your accessibility options" class="INDcircle-btn" style="top: 100px; --i
 					size += " White Logo";
 					document.getElementById("rprod").innerHTML = "EN61062130";
 					document.getElementById("prodimg").src = "https://www.hargrovescycles.co.uk/images/enve%20stem-3.jpg";
+				} else if (number.charAt(6) == '3') {
+					document.getElementById("rname").innerHTML = "Enve Areo Stem";
+					document.getElementById("rprod").innerHTML = "EN6106411";
+					document.getElementById("prodimg").src = "https://www.merlincycles.com/assets/images/productImage_470_470_ffffff_image-jpeg/36944_enve_aero_road_stem.jpg";
 				} else {
 					badResult();
 				}
 				document.getElementById("rsize").innerHTML = size;
-				document.getElementById("rname").innerHTML = "Enve Road Stem";
+				
 				
 				var year = number.charAt(5) + number.charAt(3);
 				var month = number.charAt(4);
@@ -5560,7 +5566,7 @@ Explore your accessibility options" class="INDcircle-btn" style="top: 100px; --i
 					console.log("count " + count);
 				}
 				i = count % 10;
-				console.log("i " + i);
+				console.log("crc calc " + i);
 				if (i == parseInt(number.charAt(7), 10)) {
 					showResult();
 				} else {
